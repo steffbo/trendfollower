@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = 1.8
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Main-Class': 'de.steffbo.twitter.trends.Trends'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+	compile(
+    	[group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'],
+    	[group: 'commons-collections', name: 'commons-collections', version: '3.2'],
+    	[group: 'org.hibernate', name: 'hibernate', version: '3.5.4-Final'],
+    	[group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.1'],
+    	[group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.1'],
+    	[group: 'com.google.code.gson', name: 'gson', version: '2.3.1'],
+    	[group: 'org.apache.commons', name: 'commons-lang3', version: '3.3.2'],
+    	[group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.3.8.Final']
+    )
+    	
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}

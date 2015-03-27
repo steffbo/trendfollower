@@ -1,0 +1,1 @@
+trendfollower catches current trends and then can serve them back at any time
