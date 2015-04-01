@@ -27,7 +27,9 @@ dependencies {
     	[group: 'org.apache.commons', name: 'commons-lang3', version: '3.3.2'],
     	[group: 'org.hibernate', name: 'hibernate-entitymanager', version: '4.3.8.Final'],
     	[group: 'com.twitter', name: 'hbc-core', version: '2.2+'],
-    	[group: 'org.twitter4j', name: 'twitter4j-core', version: '[4.0,)']
+    	[group: 'org.twitter4j', name: 'twitter4j-core', version: '[4.0,)'],
+    	'org.ektorp:org.ektorp:1.4.2',
+    	'org.slf4j:slf4j-simple:1.7.12'    	
     )
     	
     testCompile group: 'junit', name: 'junit', version: '4.+'
