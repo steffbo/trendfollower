@@ -12,6 +12,7 @@ import org.ektorp.http.StdHttpClient;
 import org.ektorp.impl.StdCouchDbConnector;
 import org.ektorp.impl.StdCouchDbInstance;
 
+import de.steffbo.twitter.trends.TrendSnapshot;
 import de.steffbo.twitter.trends.misc.TrendProperties;
 
 public class TrendDb {
@@ -29,7 +30,7 @@ public class TrendDb {
     }
 
     private TrendDb() {
-	Properties props = TrendProperties.getInstance().getProperties();	
+	Properties props = TrendProperties.getInstance().getProperties();
 	try {
 	    HttpClient httpClient = new StdHttpClient.Builder().url(props.getProperty("db.connection")).build();
 	    CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
@@ -42,6 +43,13 @@ public class TrendDb {
 
     public CouchDbConnector getDb() {
 	return db;
+    }
+
+    public TrendSnapshot getLatestSnapshot() {
+	for (String id : db.getAllDocIds()) {
+	    return db.get(TrendSnapshot.class, id);
+	}
+	return null;
     }
 
 }
